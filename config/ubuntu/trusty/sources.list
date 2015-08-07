@@ -1,0 +1,11 @@
+deb http://shadow.ind.ntou.edu.tw/ubuntu trusty-updates main restricted universe multiverse
+deb http://shadow.ind.ntou.edu.tw/ubuntu trusty main universe multiverse restricted
+deb http://shadow.ind.ntou.edu.tw/ubuntu trusty-backports main universe multiverse restricted
+deb http://shadow.ind.ntou.edu.tw/ubuntu trusty-proposed main universe multiverse restricted
+deb http://shadow.ind.ntou.edu.tw/ubuntu trusty-security main restricted universe multiverse
+
+deb-src http://shadow.ind.ntou.edu.tw/ubuntu trusty-updates main restricted universe multiverse
+deb-src http://shadow.ind.ntou.edu.tw/ubuntu trusty main universe multiverse restricted
+deb-src http://shadow.ind.ntou.edu.tw/ubuntu trusty-backports main universe multiverse restricted
+deb-src http://shadow.ind.ntou.edu.tw/ubuntu trusty-proposed main universe multiverse restricted
+deb-src http://shadow.ind.ntou.edu.tw/ubuntu trusty-security main restricted universe multiverse
