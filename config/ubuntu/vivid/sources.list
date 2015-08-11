@@ -1,0 +1,11 @@
+deb http://free.nchc.org.tw/ubuntu/ vivid-updates main restricted universe multiverse
+deb http://free.nchc.org.tw/ubuntu/ vivid main universe multiverse restricted
+deb http://free.nchc.org.tw/ubuntu/ vivid-backports main universe multiverse restricted
+deb http://free.nchc.org.tw/ubuntu/ vivid-proposed main universe multiverse restricted
+deb http://free.nchc.org.tw/ubuntu/ vivid-security main restricted universe multiverse
+
+deb-src http://free.nchc.org.tw/ubuntu/ vivid-updates main restricted universe multiverse
+deb-src http://free.nchc.org.tw/ubuntu/ vivid main universe multiverse restricted
+deb-src http://free.nchc.org.tw/ubuntu/ vivid-backports main universe multiverse restricted
+deb-src http://free.nchc.org.tw/ubuntu/ vivid-proposed main universe multiverse restricted
+deb-src http://free.nchc.org.tw/ubuntu/ vivid-security main restricted universe multiverse
