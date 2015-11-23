@@ -1,0 +1,17 @@
+#!/bin/sh
+
+NSENTER=nsenter
+
+if [ -z "$1" ]; then
+    echo "Usage: `basename "$0"` CONTAINER [COMMAND [ARG]...]"
+    echo ""
+    echo "Enters the Docker CONTAINER and executes the specified COMMAND."
+    echo "If COMMAND is not specified, runs an interactive shell in CONTAINER."
+else
+    PID=$(docker inspect --format "{{.State.Pid}}" "$1")
+    [ -z "$PID" ] && exit 1
+    shift
+
+    OPTS="--target $PID --mount --uts --ipc --net --pid"
+    $NSENTER $OPTS
+fi
