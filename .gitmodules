@@ -1,0 +1,9 @@
+[submodule "images/docker-library/postgres"]
+	path = images/docker-library/postgres
+	url = https://github.com/docker-library/postgres.git
+[submodule "images/docker-library/php"]
+	path = images/docker-library/php
+	url = https://github.com/docker-library/php.git
+[submodule "images/docker-library/redis"]
+	path = images/docker-library/redis
+	url = https://github.com/docker-library/redis.git
