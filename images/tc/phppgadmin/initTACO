@@ -1,0 +1,1 @@
+sed -i -e "s/extra_login_security'] = true/extra_login_security'] = false/g" /data/http/conf/config.inc.php
