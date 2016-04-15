@@ -11,4 +11,7 @@ fi
 for dir in $DIRS; do
     cp -r ../$ORIBASE/$dir/* ./$dir
     $SED -i 's/debian:jessie/shihta\/base-debian-jessie/g' ./$dir/Dockerfile
+    if [ -f "./$dir/Dockerfile.pad" ]; then
+        cat "./$dir/Dockerfile.pad" >> "./$dir/Dockerfile"
+    fi
 done

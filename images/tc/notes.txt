@@ -1,0 +1,3 @@
+Change sources.list:
+RUN sed -i 's/httpredir.debian.org/ftp.tw.debian.org/g' /etc/apt/sources.list
+
