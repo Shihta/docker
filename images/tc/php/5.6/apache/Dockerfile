@@ -107,3 +107,15 @@ ENV REDIS_URL tcp://172.16.60.15:6379
 RUN echo "session.save_handler = redis" > $PHP_INI_DIR/conf.d/redis-session.ini && \
     echo 'session.save_path = "${REDIS_URL}"' >> $PHP_INI_DIR/conf.d/redis-session.ini
 
+RUN apt-get update && apt-get install -y \
+        libmcrypt-dev \
+        libfreetype6-dev \
+        libjpeg62-turbo-dev \
+        libpng12-dev \
+        libpq-dev
+RUN docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
+    && docker-php-ext-install -j$(nproc) pdo_pgsql gd mcrypt
+
+RUN a2enmod rewrite
+COPY apache2.conf.overwrite /etc/apache2/apache2.conf
+COPY apache2-foreground.overwrite /usr/local/bin/apache2-foreground
