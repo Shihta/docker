@@ -1,6 +1,6 @@
 #!/bin/bash -x
 
-DIRS="php/5.6/apache postgres/9.5 redis/3.0"
+DIRS="php/5.6/apache postgres/9.5 redis/3.0 mariadb/10.1"
 ORIBASE="docker-library"
 if [ -f "/usr/local/opt/gnu-sed/libexec/gnubin/sed" ]; then
     SED="/usr/local/opt/gnu-sed/libexec/gnubin/sed"

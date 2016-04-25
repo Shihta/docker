@@ -7,3 +7,6 @@
 [submodule "images/docker-library/redis"]
 	path = images/docker-library/redis
 	url = https://github.com/docker-library/redis.git
+[submodule "images/docker-library/mariadb"]
+	path = images/docker-library/mariadb
+	url = https://github.com/docker-library/mariadb.git
