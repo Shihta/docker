@@ -112,7 +112,8 @@ RUN apt-get update && apt-get install -y \
         libfreetype6-dev \
         libjpeg62-turbo-dev \
         libpng12-dev \
-        libpq-dev
+        libpq-dev \
+        git unzip
 RUN docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
     && docker-php-ext-install -j$(nproc) pdo_pgsql gd mcrypt pdo_mysql
 
@@ -126,4 +127,6 @@ RUN cd /usr/local/lib/php/extensions && \
     curl -q http://acs2.shida.info/zend/zend-loader-php5.6-linux-x86_64.tar.gz | tar -xz
 RUN echo "zend_extension=/usr/local/lib/php/extensions/zend-loader-php5.6-linux-x86_64/ZendGuardLoader.so" > $PHP_INI_DIR/conf.d/zgloader.ini && \
     echo "zend_extension=/usr/local/lib/php/extensions/zend-loader-php5.6-linux-x86_64/opcache.so" >> $PHP_INI_DIR/conf.d/zgloader.ini
+
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
