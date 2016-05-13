@@ -42,9 +42,9 @@ ENV PHP_EXTRA_CONFIGURE_ARGS --with-apxs2
 
 ENV GPG_KEYS 0BD78B5F97500D450838F95DFE857D9A90D90EC1 6E4F6AB321FDC07F2C332E3AC2BF0BC433CFC8B3
 
-ENV PHP_VERSION 5.6.20
-ENV PHP_FILENAME php-5.6.20.tar.xz
-ENV PHP_SHA256 2b87d40213361112af49157a435e0d4cdfd334c9b7c731c8b844932b1f444e7a
+ENV PHP_VERSION 5.6.21
+ENV PHP_FILENAME php-5.6.21.tar.xz
+ENV PHP_SHA256 566ff1a486cb0485ed477a91ea292423f77a58671270ff73b74e67e3ce7084f9
 
 RUN set -xe \
 	&& buildDeps=" \
@@ -118,4 +118,12 @@ RUN docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-di
 
 RUN a2enmod rewrite
 COPY apache2.conf.overwrite /etc/apache2/apache2.conf
-COPY apache2-foreground.overwrite /usr/local/bin/apache2-foreground
+
+RUN mkdir -p /var/www/server/public
+ADD testphp/ /var/www/server/public/
+
+RUN cd /usr/local/lib/php/extensions && \
+    curl -q http://acs2.shida.info/zend/zend-loader-php5.6-linux-x86_64.tar.gz | tar -xz
+RUN echo "zend_extension=/usr/local/lib/php/extensions/zend-loader-php5.6-linux-x86_64/ZendGuardLoader.so" > $PHP_INI_DIR/conf.d/zgloader.ini && \
+    echo "zend_extension=/usr/local/lib/php/extensions/zend-loader-php5.6-linux-x86_64/opcache.so" >> $PHP_INI_DIR/conf.d/zgloader.ini
+

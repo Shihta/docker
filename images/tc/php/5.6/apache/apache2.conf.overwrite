@@ -36,7 +36,7 @@ Listen 80
 	Require all granted
 </Directory>
 
-DocumentRoot /var/www/html/server/public
+DocumentRoot /var/www/server/public
 
 AccessFileName .htaccess
 <FilesMatch "^\.ht">
