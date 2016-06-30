@@ -1,7 +1,7 @@
-FROM debian:jessie
+FROM buildpack-deps:jessie-scm
 
 RUN apt-get -qq update && \
-    apt-get -qqy install vim tree ifstat sysstat net-tools openssh-client locales
+    apt-get -qqy install vim tree ifstat sysstat net-tools locales
 
 RUN echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen && \
     locale-gen en_US.utf8
