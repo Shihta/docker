@@ -18,7 +18,6 @@ RUN docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-di
     && docker-php-ext-install -j$(nproc) pdo_pgsql gd mcrypt pdo_mysql
 
 RUN a2enmod rewrite
-COPY apache2.conf.overwrite /etc/apache2/apache2.conf
 
 RUN mkdir -p /var/www/server/public
 ADD testphp/ /var/www/server/public/
@@ -29,4 +28,6 @@ RUN echo "zend_extension=/usr/local/lib/php/extensions/zend-loader-php5.6-linux-
     echo "zend_extension=/usr/local/lib/php/extensions/zend-loader-php5.6-linux-x86_64/opcache.so" >> $PHP_INI_DIR/conf.d/zgloader.ini
 
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+
+COPY apache2.conf.overwrite /etc/apache2/apache2.conf
 

@@ -64,3 +64,7 @@ DirectoryIndex index.php index.html
 
 IncludeOptional conf-enabled/*.conf
 IncludeOptional sites-enabled/*.conf
+
+RewriteEngine On
+RewriteCond %{HTTP:X-Forwarded-Proto} !https
+RewriteRule ^.*$ https://%{SERVER_NAME}%{REQUEST_URI}

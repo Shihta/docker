@@ -1,7 +1,7 @@
 FROM shihta/base-debian-jessie
 
-# phpize deps
-RUN apt-get update && apt-get install -y \
+# persistent / runtime deps
+ENV PHPIZE_DEPS \
 		autoconf \
 		file \
 		g++ \
@@ -9,11 +9,9 @@ RUN apt-get update && apt-get install -y \
 		libc-dev \
 		make \
 		pkg-config \
-		re2c \
-	--no-install-recommends && rm -r /var/lib/apt/lists/*
-
-# persistent / runtime deps
+		re2c
 RUN apt-get update && apt-get install -y \
+		$PHPIZE_DEPS \
 		ca-certificates \
 		curl \
 		libedit2 \
@@ -42,9 +40,9 @@ ENV PHP_EXTRA_CONFIGURE_ARGS --with-apxs2
 
 ENV GPG_KEYS 0BD78B5F97500D450838F95DFE857D9A90D90EC1 6E4F6AB321FDC07F2C332E3AC2BF0BC433CFC8B3
 
-ENV PHP_VERSION 5.6.21
-ENV PHP_FILENAME php-5.6.21.tar.xz
-ENV PHP_SHA256 566ff1a486cb0485ed477a91ea292423f77a58671270ff73b74e67e3ce7084f9
+ENV PHP_VERSION 5.6.22
+ENV PHP_FILENAME php-5.6.22.tar.xz
+ENV PHP_SHA256 c96980d7de1d66c821a4ee5809df0076f925b2fe0b8c362d234d92f2f0a178e2
 
 RUN set -xe \
 	&& buildDeps=" \
@@ -118,7 +116,6 @@ RUN docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-di
     && docker-php-ext-install -j$(nproc) pdo_pgsql gd mcrypt pdo_mysql
 
 RUN a2enmod rewrite
-COPY apache2.conf.overwrite /etc/apache2/apache2.conf
 
 RUN mkdir -p /var/www/server/public
 ADD testphp/ /var/www/server/public/
@@ -129,4 +126,6 @@ RUN echo "zend_extension=/usr/local/lib/php/extensions/zend-loader-php5.6-linux-
     echo "zend_extension=/usr/local/lib/php/extensions/zend-loader-php5.6-linux-x86_64/opcache.so" >> $PHP_INI_DIR/conf.d/zgloader.ini
 
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+
+COPY apache2.conf.overwrite /etc/apache2/apache2.conf
 

@@ -55,6 +55,10 @@ if [ -z "$exts" ]; then
 	exit 1
 fi
 
+if [ -e /lib/apk/db/installed ] && [ -n "$PHPIZE_DEPS" ]; then
+	apk add --no-cache --virtual .phpize-deps $PHPIZE_DEPS
+fi
+
 for ext in $exts; do
 	(
 		cd "$ext"
@@ -69,3 +73,7 @@ for ext in $exts; do
 		make -j"$j" clean
 	)
 done
+
+if [ -e /lib/apk/db/installed ] && [ -n "$PHPIZE_DEPS" ]; then
+	apk del .phpize-deps
+fi
