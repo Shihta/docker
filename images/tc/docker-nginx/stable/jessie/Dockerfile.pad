@@ -1,0 +1,5 @@
+
+RUN rm /etc/nginx/conf.d/*
+ADD ssloffload.conf /etc/nginx/conf.d/
+ADD 1_test1.shida.info_bundle.crt /etc/nginx/conf.d/
+ADD 2_test1.shida.info.key /etc/nginx/conf.d/
