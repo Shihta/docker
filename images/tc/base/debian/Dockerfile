@@ -56,7 +56,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 	&& rm -rf /var/lib/apt/lists/*
 
 RUN apt-get -qq update && \
-    apt-get -qqy install vim tree ifstat sysstat net-tools locales
+    apt-get -qqy install vim tree ifstat sysstat net-tools locales sudo
 
 RUN echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen && \
     locale-gen en_US.utf8
