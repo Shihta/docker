@@ -13,3 +13,6 @@
 [submodule "libraries/buildpack-deps"]
 	path = libraries/buildpack-deps
 	url = https://github.com/docker-library/buildpack-deps.git
+[submodule "libraries/python"]
+	path = libraries/python
+	url = https://github.com/docker-library/python.git
