@@ -10,3 +10,6 @@
 [submodule "images/docker-library/mariadb"]
 	path = images/docker-library/mariadb
 	url = https://github.com/docker-library/mariadb.git
+[submodule "libraries/buildpack-deps"]
+	path = libraries/buildpack-deps
+	url = https://github.com/docker-library/buildpack-deps.git
