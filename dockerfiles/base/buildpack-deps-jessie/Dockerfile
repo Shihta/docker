@@ -17,7 +17,7 @@ RUN sed -i 's/"syntax on/syntax on/g' /etc/vim/vimrc; \
     echo "set tabpagemax=300" >> /etc/vim/vimrc
 
 RUN sed -i "s/# export LS_OPTIONS='--color=auto'/export LS_OPTIONS='--color=auto'/g" /root/.bashrc; \
-    sed -i 's/# eval "`dircolors`"/eval "`dircolors`"/g' /root/.bashrc; \
+    sed -i 's/# eval "`dircolors`"/eval "`dircolors -b`"/g' /root/.bashrc; \
     sed -i "s/# alias ls='ls \$LS_OPTIONS'/alias ls='ls \$LS_OPTIONS'/g" /root/.bashrc; \
     sed -i "s/# alias ll='ls \$LS_OPTIONS -l'/alias ll='ls \$LS_OPTIONS -l'/g" /root/.bashrc; \
     echo "alias grep='grep --color=auto'" >> /root/.bashrc; \
