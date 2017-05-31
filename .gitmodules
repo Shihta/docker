@@ -16,3 +16,6 @@
 [submodule "libraries/python"]
 	path = libraries/python
 	url = https://github.com/docker-library/python.git
+[submodule "libraries/docker-nginx"]
+	path = libraries/docker-nginx
+	url = https://github.com/nginxinc/docker-nginx.git
