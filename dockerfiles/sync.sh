@@ -1,7 +1,7 @@
 #!/bin/bash -x
 
 #DIRS="php/5.6/apache redis/3.2 mariadb/10.1 docker-nginx/stable/jessie python/2.7 docker-selenium/StandaloneChrome"
-DIRS="python/2.7 docker-nginx/stable/stretch"
+DIRS="python/2.7 docker-nginx/mainline/stretch-perl"
 ORIBASE="libraries"
 if [ -f "/usr/local/opt/gnu-sed/libexec/gnubin/sed" ]; then
     SED="/usr/local/opt/gnu-sed/libexec/gnubin/sed"
