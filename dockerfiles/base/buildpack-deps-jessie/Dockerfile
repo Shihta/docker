@@ -10,7 +10,6 @@ RUN sed -i 's/"syntax on/syntax on/g' /etc/vim/vimrc; \
     sed -i 's/"set background=dark/set background=dark/g' /etc/vim/vimrc; \
     echo "set expandtab" >> /etc/vim/vimrc; \
     echo "set tabstop=4" >> /etc/vim/vimrc; \
-    echo "set ai" >> /etc/vim/vimrc; \
     echo "set hls" >> /etc/vim/vimrc; \
     echo "map <C-n> :tabnext<CR>" >> /etc/vim/vimrc; \
     echo "map <C-p>  :tabprevious<CR>" >> /etc/vim/vimrc; \
