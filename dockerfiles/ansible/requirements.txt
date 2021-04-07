@@ -1,5 +1,5 @@
 adal==0.4.4
-ansible==2.2.1.0
+ansible==2.10.0
 apache-libcloud==1.5.0
 azure==2.0.0rc5
 azure-batch==0.30.0rc5
