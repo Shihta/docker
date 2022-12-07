@@ -28,7 +28,7 @@ azure-servicebus==0.20.2
 azure-servicemanagement-legacy==0.20.3
 azure-storage==0.32.0
 boto==2.45.0
-certifi==2016.9.26
+certifi==2022.12.7
 cffi==1.9.1
 chardet==2.3.0
 cryptography==1.7.1
