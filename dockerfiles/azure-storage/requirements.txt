@@ -6,7 +6,7 @@ azure-mgmt-nspkg==1.0.0
 azure-mgmt-storage==0.31.0
 azure-nspkg==1.0.0
 azure-storage==0.34.0
-certifi==2017.1.23
+certifi==2022.12.7
 cffi==1.10.0
 cryptography==1.8.1
 enum34==1.1.6
